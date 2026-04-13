@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-import tensorflow as tf
+import keras
 
 st.set_page_config(page_title="Acne Detection AI", layout="centered")
 st.title("AI Acne Detection App")
@@ -9,7 +9,7 @@ st.write("Upload a face image to analyze acne severity")
 
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("acne_severity_model.keras")
+    model = keras.models.load_model("acne_severity_model.keras")
     return model
 
 model = load_model()
