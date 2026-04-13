@@ -9,7 +9,8 @@ st.write("Upload a face image to analyze acne severity")
 
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("acne_severity_model.keras")
+    model =  tf.lite.Interpreter(model_path = "model.tflite")
+    model.allocate_tensors()
     return model
 
 model = load_model()
